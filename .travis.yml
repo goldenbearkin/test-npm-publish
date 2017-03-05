@@ -1,0 +1,21 @@
+language: node_js
+node_js: stable
+sudo: false
+install: true
+os:
+- linux
+before_script:
+- npm install
+- npm install -g coveralls nyc
+script:
+- npm run test && npm run lint
+after_success:
+- nyc report --reporter=text-lcov | coveralls
+deploy:
+  provider: npm
+  email: huihangkin@gmail.com
+  api_key:
+    secure: I6tgAlLTyhxVYf8yQoW/oBgOgSaJ6OJXecSN++H1oYhf8Tv+ttHvNhCy3xddqopaaO+DUtx6Hy7xvj0OYxX5CxtW5YA9xDQMSE1AtvJgw66tDwL1ZSJwgIZtOdGx5BZOs5mQGLP51IRoEuzt4A6liNvqrcMs5l6FNU+IIyXW2cNJeP8r7ybEM7yMOMc/hgXKwa17cWXG5KaKTFR+Cirwzc/IzmQcFgwanCuTjORQqElmLEhaacuh1Obps3bL6NMg8qQc4exiuAABDRVXwBbIe3aYgImdYXoCTZs8m9pXFcwde0gDV003KSwujB18nboOZvgD6PxloN/7pmstnwZlcgf0IY5HKCVqNFvBliTML1QPSgtcCEsEflBQazOuC7+fk6h5Omz6U4K//nmIdBClKNnNhdRtWKWVB2lHv2ZYr64bvqOB+A/EnlTT77pJSqGHbNb1pSsr8ki/PTOll4Sldr/uYJ97urHfK+mpE/OiHhdHEyDUrgmtHTzGZYexkBdg4kRhoiz/r+qPdgRNDcra+yDFZ+E/aD+IT7ZDpE1XH9D9p1s/3iiLErc2TinD/4HzlDJcylJHvPoruXppQWssnLMKzK/Nc3FQl93C86+IdIwztAF99oIWkW0a8APAqh7O8cKC9yvsq5sZGkbVN8QyEDHeh2WZ9mZsdGU6SsyPd3M=
+  on:
+    tags: true
+    repo: goldenbearkin/ts-library-boilerplate
