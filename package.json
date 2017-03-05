@@ -1,5 +1,5 @@
 {
-  "name": "test-npm-publish",
+  "name": "test-npm-publish-goldenbearkin",
   "version": "1.0.0",
   "description": "A simple tree-shakable typeScript library boilerplate",
   "main": "test-npm-publish.bundle.js",
